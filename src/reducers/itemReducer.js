@@ -10,7 +10,6 @@ export const cartReducer=(state=initialState,action)=>{
     switch(action.type){
         case CART_ADD_ITEM:
             const newBasket=[...state.basket,action.payload]
-            // const countInStock=[...state.basket.count]
             return{
               ...state,
               basket:newBasket

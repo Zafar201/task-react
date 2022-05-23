@@ -11,10 +11,11 @@ export default function Home() {
 
     useEffect(()=>{
         dispatch(getCurrencyList())
-        if(!loading && !error){
-            
-        }
-        console.log(basket,'cty')
+     console.log(basket.length,'ok' )
+    // if(basket.length > 22){
+    //   console.log('heloo')
+    // }
+       
     },[basket])
     const addToCartHandler=(id,slug,symbol,price,percentage)=>{
         console.log(id,slug,symbol,price,percentage)
@@ -32,7 +33,7 @@ export default function Home() {
            <Container className='homcur'>
               <Row>
                  <Col>
-                 {basket.map((itm)=>(
+                 {basket.length > 0 ? basket.map((itm)=>(
                            <>
                            <Row key={itm.id}>
                               <Col md={2}>
@@ -55,7 +56,9 @@ export default function Home() {
                                <hr/>
                            </Row>
                            </>
-                       ))}
+                       )):(
+                        <h1>no items</h1>
+                       )}
                  </Col>
        
                   {loading ? (<h1>loading....</h1>):
